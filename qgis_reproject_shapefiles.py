@@ -12,12 +12,12 @@ def list_files(path, tipo):
                 list.append(file)
     return list
 
-def criar_pasta(path):
+def create_folder(path):
     if not os.path.exists(path + 'reproject'):
         os.makedirs(path + 'reproject')
 
 def reproject(path, epsg):
-    criar_pasta(path)
+    create_folder(path)
     for shape in list_files(path,'.shp'):
         inpath = path + shape
         outpath = path + '/reproject/' + str(epsg) + '_' + shape
